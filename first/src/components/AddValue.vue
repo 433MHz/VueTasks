@@ -11,17 +11,17 @@
 <script>
 export default {
 
-data(){
-    return{
-    value: 0
-    }
-},
+    data(){
+        return{
+        value: 0
+        }
+    },
 
-methods:{
-    AddValue(){
-        this.value = this.value + 5;
+    methods:{
+        AddValue(){
+            this.value = this.value + 5;
+        }
     }
-}
 }
 
 </script>

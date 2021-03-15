@@ -6,6 +6,9 @@
     <div class="merged">
       <MinusValue></MinusValue>
     </div>
+    <div class="merged">
+      <List></List>
+    </div>
   </div>
 </template>
 
@@ -14,11 +17,13 @@
 <script>
 import AddValue from './AddValue';
 import MinusValue from './MinusValue';
+import List from './List';
 
 export default {
   components:{
     AddValue,
-    MinusValue
+    MinusValue,
+    List
   }
 }
 </script>
