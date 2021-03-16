@@ -11,22 +11,21 @@
         <button v-on:click="buttonCall(6)" v-bind:class='{choosed: buttonClicked.button6}'>B</button>
     </div>
 
-<div id="input"><label for="dataInput">Insert value: </label><input name="dataInput" type="number"></div>
+<div id="input"><label for="dataInput">Insert value: </label><input name="dataInput" type="number" v-model="currentValue"></div>
 
 <div id="leftDataInputs">
-    <label for="mbit">Mb: </label><input name="mbit" type="number" v-model="tempValues.Mbit"><br>
-    <label for="kbit">Kb: </label><input name="kbit" type="number" v-model="tempValues.Kbit"><br>
-    <label for="bits">b: </label><input name="bits" type="number" v-model="tempValues.Bit"><br>
+    <label for="mbit">Mb: </label><input name="mbit" type="text" v-model="tempValues.Mbit"><br>
+    <label for="kbit">Kb: </label><input name="kbit" type="text" v-model="tempValues.Kbit"><br>
+    <label for="bits">b: </label><input name="bits" type="text" v-model="tempValues.Bit"><br>
 </div>
 
 <div id="rightDataInputs">
-    <label for="mbyte">MB: </label><input name="mbyte" type="number" v-model="tempValues.Mbyte"><br>
-    <label for="kbyte">KB: </label><input name="kbyte" type="number" v-model="tempValues.Kbyte"><br>
-    <label for="byte">B: </label><input name="byte" type="number" v-model="tempValues.Byte"><br>
+    <label for="mbyte">MB: </label><input name="mbyte" type="text" v-model="tempValues.Mbyte"><br>
+    <label for="kbyte">KB: </label><input name="kbyte" type="text" v-model="tempValues.Kbyte"><br>
+    <label for="byte">B: </label><input name="byte" type="text" v-model="tempValues.Byte"><br>
 </div>
 <div style="clear: both"></div>
 <div id="bottomButtonDiv">
-    <button v-on:click="CalculateValues">Convert</button>
 </div>
 </div>
 </template>
@@ -85,6 +84,8 @@
 export default {
     data(){
         return{
+            currentValue: 0,
+            clicked: 0,
             buttonClicked:{
                 button1: false,
                 button2: false,
@@ -125,38 +126,78 @@ export default {
            switch (number) {
                 case 1:
                     this.buttonClicked.button1 = true;
+                    this.clicked = 1;
                    break;
 
                 case 2:
                     this.buttonClicked.button2 = true;
-
+                    this.clicked = 2;
                    break;
 
                 case 3:
                     this.buttonClicked.button3 = true;
-
+                    this.clicked = 3;
                    break;
 
                 case 4:
                     this.buttonClicked.button4 = true;
-
+                    this.clicked = 4;
                    break;
 
                 case 5:
                     this.buttonClicked.button5 = true;
-
+                    this.clicked = 5;
                    break;
 
                 case 6:
                     this.buttonClicked.button6 = true;
+                    this.clicked = 6;
                    break;
            }
+       },
+
+       makeSomeMath(){
+           switch (this.clicked) {
+                case 1:
+                    this.tempValues.Bit = this.currentValue * 1000000;
+                    break;
+
+                case 2:
+                    this.tempValues.Bit = this.currentValue * 1000;
+                    break;
+
+                case 3:
+                    this.tempValues.Bit = this.currentValue;
+                    break;
+
+                case 4:
+                    this.tempValues.Bit = (this.currentValue / 8) * 1000000;
+                    break;
+
+                case 5:
+                    this.tempValues.Bit = (this.currentValue / 8) * 1000;
+                    break;
+
+                case 6:
+                    this.tempValues.Bit = this.currentValue / 8;
+                    break;
+            }
+
+            this.tempValues.Mbit = this.tempValues.Bit / 1000000;
+            this.tempValues.Kbit = this.tempValues.Bit / 1000;
+            this.tempValues.Byte = this.tempValues.Bit / 8;
+            this.tempValues.Mbyte = (this.tempValues.Bit / 8) / 1000000;
+            this.tempValues.Kbyte = (this.tempValues.Bit / 8) / 1000;
        }
     },
 
     watch:{
-        buttonClicked(){
-            
+        currentValue(){
+            this.makeSomeMath();
+        },
+
+        clicked(){
+            this.makeSomeMath();
         }
     },
 
