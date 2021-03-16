@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>Minus value</h2><br>
-        <h3>{{value}}</h3>
+        <h3>{{value}} {{AddEndValue}}</h3>
         <button v-on:click='MinusValue()'>Minus value</button>
     </div>
 </template>
@@ -20,6 +20,12 @@ export default {
     methods:{
         MinusValue(){
             this.value = this.value - 5;
+        }
+    },
+
+    computed:{
+        AddEndValue(){
+            return ' : value'
         }
     }
 }
