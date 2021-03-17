@@ -16,19 +16,42 @@
         <button>Mbit</button><br>
         <button>Kbit</button><br>
         <button>bit</button>
+
+        {{value}}
     </nav>
 
-    <article>Lorem ipsum</article>
+    <article><MB></MB></article>
 
 </div>
 </template>
 
 
+<script>
+import MB from './MB';
+
+export default {
+    components:{
+        MB
+    },
+
+    methods:{
+        insertValue(value){
+            this.value = value
+        }
+    },
+
+    data(){
+        return{
+            value: ''
+        }
+    }
+}
+</script>
+
 
 <style>
     #mainDiv{
-        width: 60%;
-        height: 700px;
+        width: 1000px;
         margin: auto;
     }
 
@@ -39,7 +62,7 @@
 
     header{
         background-color: burlywood;
-        width: 100%;
+        width: 1000px;
         height: 80px;
     }
 
@@ -49,6 +72,7 @@
         padding-bottom: 50px;
         background-color: burlywood;
         width: 250px;
+        height: 500px;
         text-align: center;
         font-size: 20px;
         float: left;
@@ -70,6 +94,8 @@
         background-color: burlywood;
         margin-left: 20px;
         margin-top: 20px;
-        width: 75%;
+        width: 730px;
+        height: 560px;
+        text-align: center;
     }
 </style>

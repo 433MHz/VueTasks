@@ -1,5 +1,7 @@
 <template>
-  <MainFrame></MainFrame>
+  <div @MBValue="takeValue">
+    <MainFrame></MainFrame>
+  </div>
 </template>
 
 
@@ -13,6 +15,5 @@ export default {
   components:{
     MainFrame
   }
-  
 }
 </script>
