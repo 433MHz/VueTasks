@@ -12,6 +12,7 @@
         <button v-on:click="SwitchComponent('MB')">MB</button><br>
         <button v-on:click="SwitchComponent('KB')">KB</button><br>
         <button v-on:click="SwitchComponent('B')">Bytes</button><br>
+        <button v-on:click="SwitchComponent('Tbit')">Tbit</button><br>
         <button v-on:click="SwitchComponent('Gbit')">Gbit</button><br>
         <button v-on:click="SwitchComponent('Mbit')">Mbit</button><br>
         <button v-on:click="SwitchComponent('Kbit')">Kbit</button><br>
@@ -25,13 +26,30 @@
 
 
 <script>
-import MB from './MB';
 import TB from './TB';
+import GB from './GB';
+import MB from './MB';
+import KB from './KB';
+import B from './B';
+
+import Tbit from './Tbit';
+import Gbit from './Gbit';
+import Mbit from './Mbit';
+import Kbit from './Kbit';
+import bit from './bit';
 
 export default {
     components:{
+        TB,
+        GB,
         MB,
-        TB
+        KB,
+        B,
+        Tbit,
+        Gbit,
+        Mbit,
+        Kbit,
+        bit
     },
 
     methods:{
@@ -72,7 +90,7 @@ export default {
         padding-bottom: 50px;
         background-color: burlywood;
         width: 250px;
-        height: 500px;
+        height: 530px;
         text-align: center;
         font-size: 20px;
         float: left;
@@ -95,7 +113,7 @@ export default {
         margin-left: 20px;
         margin-top: 20px;
         width: 730px;
-        height: 560px;
+        height: 585px;
         text-align: center;
     }
 </style>
