@@ -2,7 +2,7 @@
     <div>
         <div><h3>MB convert</h3></div>
         <div id="dataInput"><input type="number" v-model="MBValue"></div>
-        <Data></Data>
+        <Data :message="CalculatedValue"></Data>
     </div>
 </template>
 
@@ -17,13 +17,13 @@ export default {
 
     data(){
         return{
-            MBValue: 0
+            MBValue: Number,
         }
     },
-    
-    watch:{
-        MBValue(){
-            this.$emit('MBValue', this.MBValue)
+
+    computed:{
+        CalculatedValue(){
+            return this.MBValue;
         }
     }
 }
