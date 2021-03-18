@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div><h3>Bits convert</h3></div>
+        <div><h3>Tb (TeraBits) convert</h3></div>
         <div id="dataInput"><input type="number" v-model="MBValue"></div>
         <Data :message="CalculatedValue"></Data>
     </div>
@@ -23,7 +23,7 @@ export default {
 
     computed:{
         CalculatedValue(){
-            return this.MBValue / 1000000 / 8
+            return this.MBValue * 1000000 / 8
         }
     }
 }
