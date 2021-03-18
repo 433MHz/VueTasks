@@ -1,6 +1,5 @@
 <template>
 <div>
-    {{message}}
     <div id="mainDataContainer">
             <div class="dataContainers">
                 <p>TB (TeraBytes) <br>{{values.TB}}</p><br>

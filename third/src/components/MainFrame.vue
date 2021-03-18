@@ -7,20 +7,18 @@
     </header>
 
     <nav>
-        <button>TB</button><br>
-        <button>GB</button><br>
-        <button>MB</button><br>
-        <button>KB</button><br>
-        <button>Bytes</button><br>
-        <button>Gbit</button><br>
-        <button>Mbit</button><br>
-        <button>Kbit</button><br>
-        <button>bit</button>
-
-        {{value}}
+        <button v-on:click="SwitchComponent('TB')">TB</button><br>
+        <button v-on:click="SwitchComponent('GB')">GB</button><br>
+        <button v-on:click="SwitchComponent('MB')">MB</button><br>
+        <button v-on:click="SwitchComponent('KB')">KB</button><br>
+        <button v-on:click="SwitchComponent('B')">Bytes</button><br>
+        <button v-on:click="SwitchComponent('Gbit')">Gbit</button><br>
+        <button v-on:click="SwitchComponent('Mbit')">Mbit</button><br>
+        <button v-on:click="SwitchComponent('Kbit')">Kbit</button><br>
+        <button v-on:click="SwitchComponent('bit')">bit</button>
     </nav>
 
-    <article><MB></MB></article>
+    <article><component v-bind:is="component"></component></article>
 
 </div>
 </template>
@@ -28,21 +26,23 @@
 
 <script>
 import MB from './MB';
+import TB from './TB';
 
 export default {
     components:{
-        MB
+        MB,
+        TB
     },
 
     methods:{
-        insertValue(value){
-            this.value = value
+        SwitchComponent(com){
+            this.component = com
         }
     },
 
     data(){
         return{
-            value: ''
+            component: MB
         }
     }
 }
