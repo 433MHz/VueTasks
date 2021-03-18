@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div><h3>MB convert</h3></div>
+        <div><h3>MB (MegaBytes) convert</h3></div>
         <div id="dataInput"><input type="number" v-model="MBValue"></div>
         <Data :message="CalculatedValue"></Data>
     </div>
