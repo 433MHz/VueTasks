@@ -48,7 +48,6 @@ export default {
 
     watch:{
         message(){
-            
             this.values.TB = this.message / 1000000,
             this.values.GB = this.message / 1000,
             this.values.MB = this.message,
@@ -59,8 +58,7 @@ export default {
             this.values.Tb = this.values.Mb / 1000000,
             this.values.Gb = this.values.Mb / 1000,
             this.values.Kb = this.values.Mb * 1000,
-            this.values.b = this.values.b * 1000000
-            
+            this.values.b = this.values.Mb * 1000000
         }
     }
    }
